@@ -1,0 +1,41 @@
+#face{
+    background-color: orange;
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+}
+#smile{
+    background-color: rgb(255, 51, 0);
+    border-radius:0 0 50px 50px;
+    width: 200px;
+    height: 75px;
+    position: absolute;
+    top:250px;
+    left: 100px;
+    
+}
+.eye1,.eye2{
+    background-color: black;
+    height: 70px;
+    width: 50px;
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    top: 100px;
+}
+.eye1{
+    left: 100px;
+}
+.eye2{
+    left: 250px;
+}
+#eyeball1,#eyeball2{
+    background-color: white;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50px;
+    left: 30px;
+}
+

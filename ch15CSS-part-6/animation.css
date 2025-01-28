@@ -1,0 +1,52 @@
+.box{
+    height: 100px;
+    width: 300px;
+    background-color: pink;
+    
+    /* animation-name:myanimetion;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse; */
+
+    text-align: center;
+
+    /* animation-name:widthAnimate;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse; */
+
+    animation: widthAnimate 1s ease 0s infinite alternate-reverse ;
+}
+
+@keyframes myanimetion{
+    from{font-size:10px}
+    to{font-size:55px}
+}
+@keyframes colorAnimate{
+    from{
+        background-color: green;
+    }
+    to{
+        background-color: blue;
+    }
+}
+@keyframes widthAnimate {
+    0%{
+        height: 50px;
+        width: 50px;
+        background-color:red;
+    }
+    50%{
+        background-color: greenyellow;
+    }
+    100%{
+        height: 100px;
+        width: 100px;
+        background-color: blue;
+        border-radius: 50%;
+    }
+}

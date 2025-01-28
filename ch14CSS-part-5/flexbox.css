@@ -1,0 +1,50 @@
+body{
+    text-align: center;
+}
+#box{
+    margin-left:10px auto;
+    background-color: azure;
+    height: 300px;
+    width: 80%;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* flex-wrap: wrap; */
+    align-content: flex-start;
+}
+#box > *{
+    color: white;
+    height: 100px;
+    width: 500px;
+}
+#red{
+    background-color: red;
+    flex-shrink: 3;
+    /* flex-grow: 1; */
+}
+
+#orange{
+    background-color: orange;
+}   
+
+#yellow{
+    background-color: yellow;
+}
+
+#green{
+    background-color: green;
+}
+
+#blue{
+    background-color: blue;
+    /* flex-grow: 2; */
+}
+
+#indigo{
+    background-color: indigo;
+}
+
+#violet{
+    background-color: violet;
+}

@@ -1,4 +1,4 @@
-//STRING IN JAVASCRIPT ARE IMMUTABLE
+//STRINGS IN JAVASCRIPT ARE IMMUTABLE
 
 // let str = "    hello   ";
 // console.log(str);

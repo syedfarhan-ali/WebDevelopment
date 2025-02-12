@@ -55,8 +55,9 @@
 
 let start = 5;
 let end = 10;
+let diff = end-start;
 function randomNum(start,end) {
-    return Math.floor(Math.random()*(end-start))+start;
+    return Math.floor(Math.random()*diff)+start;
 }
 console.log( randomNum(start,end));
 

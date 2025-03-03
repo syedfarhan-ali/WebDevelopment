@@ -1,0 +1,14 @@
+*{
+    text-align: center;
+}
+
+#box{
+    border:2px solid black;
+    border-radius: 4px;
+    height: 200px;
+    width: 500px;
+    margin:auto;
+}
+#btn{
+    margin-bottom:10px;
+}

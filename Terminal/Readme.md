@@ -43,4 +43,4 @@ rm - removes files
 
 rmdir - removes empty folders
 
-rm -rf -removes any folder
+rm -rf -removes any folder.

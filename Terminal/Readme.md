@@ -46,3 +46,5 @@ rmdir - removes empty folders
 rm -rf -removes any folder.
 
 # Testing branches
+
+# Testing conflicts -> conflict 

@@ -1,0 +1,13 @@
+.post{
+    background-color: blanchedalmond;
+}
+h1{
+    color: maroon;
+}
+.user{
+    font-style: italic;
+}
+textarea{
+    height: 300px;
+    width: 500px;
+}

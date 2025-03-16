@@ -11,6 +11,8 @@ const connection = mysql.createConnection({
 });
 const path = require("path");
 const methodOverride = require("method-override");
+const { v4: uuidv4 } = require('uuid');
+const { connect } = require("http2");
 
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: true }));
@@ -101,14 +103,13 @@ app.patch("/user/:id", (req, res) => {
       let user = result[0];
       if (formPass != user.password) {
         res.send("wrong password");
-      }else{
-		let q2 = `UPDATE user SET username='${newUsername}' WHERE id='${id}'`;
-		connection.query(q2,(err,result) => {
-			if(err) throw err;
-			res.redirect("/user");
-			
-		});
-	  }
+      } else {
+        let q2 = `UPDATE user SET username='${newUsername}' WHERE id='${id}'`;
+        connection.query(q2, (err, result) => {
+          if (err) throw err;
+          res.redirect("/user");
+        });
+      }
     });
   } catch (err) {
     console.log(err);
@@ -117,9 +118,72 @@ app.patch("/user/:id", (req, res) => {
 });
 
 //ADD - add a new user to database post request
-app.get("/user/add",);
+app.get("/user/add", (req, res) => {
+	res.render("add.ejs");
+});
+
+app.post("/user/add",(req,res) => {
+	let Id = uuidv4();
+	let { pass: formPass, user: newUser, email: email  } = req.body;
+	let q = `INSERT INTO user (id,username,email,password) VALUES ('${Id}','${newUser}','${email}','${formPass}')`;
+
+	try{
+		connection.query(q, (err,result) => {
+			if(err) throw err;
+
+			res.redirect("/user");
+		});
+	}catch(err){
+		res.send("some error occured during add");
+	}
+
+});
+
 //DELETE - if they enterned correct email and password
-app.patch("/user/:id");
+app.get("/user/:id/delete",(req,res) => {
+	let {id} = req.params;
+	let q = `SELECT * FROM user WHERE id = '${id}'`;
+
+	try{
+		connection.query(q,(err,result) => {
+			if(err) throw err;
+			let user = result[0];
+			res.render("delete.ejs",{user});
+		});
+	}catch(err){
+		res.send("some error occured");
+	}
+});
+
+app.delete("/user/:id/",(req,res) => {
+	let {id} = req.params;
+	let {password} = req.body;
+	let q = `SELECT * FROM user WHERE id = '${id}'`;
+
+	try{
+		connection.query(q,(err,result) =>{
+			if(err) throw err;
+			let user = result[0];
+
+			if(user.password != password){
+				res.send("wrong password");
+			}else{
+				let q2 = `DELETE FROM user WHERE id = '${id}'`;
+				connection.query(q2,(err,result) => {
+					if(err) throw err;
+					else{
+						console.log(result);
+						console.log("deleted");
+						res.redirect("/user");
+					}
+				});
+			}
+		});
+	}catch(err){
+		res.send("some error occured with db");
+	}
+});
+
 app.listen(port, () => {
   console.log("server is listening to port ", port);
 });

@@ -12,11 +12,15 @@
             <th>username</th>
             <th>email</th>
             <th>edit name</th>
+            <th>Delete </th>
         </tr>
         <tr>
-            <td>123</td>
-            <td>hello</td>
-            <td>hello@gmail.com</td>
+            <td>Add new entry</td>
+            <td>Add new entry</td>
+            <td>Add new entry</td>
+            <td>
+                <a href="/user/add">Add</a>
+            </td>
         </tr>
         <% for(user of users){ %>
             <tr>
@@ -26,6 +30,11 @@
                 <td>
                     <form method="GET" action="/user/<%=user.id%>/edit">
                         <button>edit name</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="get" action="/user/<%=user.id%>/delete">
+                        <button>Delete</button>
                     </form>
                 </td>
             </tr>

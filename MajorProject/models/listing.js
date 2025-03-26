@@ -12,14 +12,18 @@ const listingSchema = new Schema({
         url: {
             type: String,
             default:
-                "https://unsplash.com/photos/airplane-on-ground-surrounded-with-trees-G85VuTpw6jg",
+                "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2glMjBob3VzZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
             set: (v) =>
                 v === ""
-                    ? "https://unsplash.com/photos/airplane-on-ground-surrounded-with-trees-G85VuTpw6jg"
+                    ? "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2glMjBob3VzZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
                     : v,
         },
     },
-    price: Number,
+    price: {
+        type: Number,
+        required: true,
+        default: 0,
+    },
     location: String,
     country: String,
 });

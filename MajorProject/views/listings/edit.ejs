@@ -22,7 +22,7 @@
 
                 <div class="mb-3">
                     <label for="image" class="form-label">Image</label><br>
-                    <input value="<%= listing.image.url %>" name="listing[image][url]"
+                    <input value="<%= listing.image?.url %>" name="listing[image][url]"
                         placeholder="Enter image URL/Link" type="text" class="form-control" required>
                     <div class="valid-feedback">Image seems fine</div>
                     <div class="invalid-feedback">Enter an image URL</div>

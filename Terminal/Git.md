@@ -5,7 +5,7 @@ git config --list
 git --version
 
 # Clone and status
-git clone some link
+git clone some-link
 git status
 
 # ADD and Commit
